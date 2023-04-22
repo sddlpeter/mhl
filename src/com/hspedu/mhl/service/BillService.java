@@ -3,6 +3,7 @@ package com.hspedu.mhl.service;
 import com.hspedu.mhl.dao.BillDAO;
 import com.hspedu.mhl.domain.Bill;
 import com.hspedu.mhl.domain.DiningTable;
+import com.hspedu.mhl.domain.MultiTableBean;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.UUID;
 public class BillService {
     MenuService menuService = new MenuService();
     DiningTableService diningTableService = new DiningTableService();
+    // MultiTableService multiTableService = new MultiTableService();
 
     BillDAO billDAO = new BillDAO();
     public List<Bill> listBills() {

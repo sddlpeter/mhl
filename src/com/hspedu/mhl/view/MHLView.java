@@ -1,13 +1,7 @@
 package com.hspedu.mhl.view;
 
-import com.hspedu.mhl.domain.Bill;
-import com.hspedu.mhl.domain.DiningTable;
-import com.hspedu.mhl.domain.Dish;
-import com.hspedu.mhl.domain.Employee;
-import com.hspedu.mhl.service.BillService;
-import com.hspedu.mhl.service.DiningTableService;
-import com.hspedu.mhl.service.EmployeeService;
-import com.hspedu.mhl.service.MenuService;
+import com.hspedu.mhl.domain.*;
+import com.hspedu.mhl.service.*;
 import com.hspedu.mhl.utils.Utility;
 
 import java.util.List;
@@ -24,6 +18,7 @@ public class MHLView {
     private DiningTableService diningTableService = new DiningTableService();
     private MenuService menuService = new MenuService();
     private BillService billService = new BillService();
+    private MultiTableService multiTableService = new MultiTableService();
 
 
     public void listDiningTables() {
@@ -70,9 +65,9 @@ public class MHLView {
     public void listBill() {
         System.out.println("请输入餐桌号：");
         int i = Utility.readInt();
-        List<Bill> bills = billService.listBillByTableId(i);
-        System.out.println("\n账单编码\t账单号\t菜品号\t数量\t花费\t餐桌号\t日期\t状态");
-        for (Bill b : bills) {
+        List<MultiTableBean> bills = multiTableService.listBill(i);
+        System.out.println("\n账单编码\t账单号\t菜品号\t数量\t花费\t餐桌号\t日期\t状态\t菜名");
+        for (MultiTableBean b : bills) {
             System.out.println(b);
         }
     }
